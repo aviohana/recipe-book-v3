@@ -25,12 +25,13 @@ app.factory("trips", function($q, $http, user) {
             async.resolve(trips[userId]);
         } else {
             trips[userId] = [];
-            var gettripsURL = "http://my-json-server.typicode.com/nirch/trip-book-v3/trips?userId=" + userId;
+ //https:my-json-server.typicode.com/aviohana/recipe-book-v3/users
+            var gettripsURL = "http://my-json-server.typicode.com/aviohana/recipe-book-v3/trips";
             
             $http.get(gettripsURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
-                    var trip = new trip(response.data[i]);
-                    trips[userId].push(trip);
+                    var trip1 = new trip(response.data[i]);
+                    trips[userId].push(trip1);
                 }
                 wasEverLoaded[userId] = true;
                 async.resolve(trips[userId]);
