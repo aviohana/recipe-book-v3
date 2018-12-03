@@ -1,5 +1,5 @@
 
-app.controller("recipeGalleryCtrl", function($scope, recipes, user, $location) {
+app.controller("tripGalleryCtrl", function($scope, trips, user, $location) {
 
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
@@ -8,8 +8,8 @@ app.controller("recipeGalleryCtrl", function($scope, recipes, user, $location) {
         return;
     }
 
-    recipes.getActiveUserRecipes().then(function (recipes) {
-        $scope.recipes = recipes;
+    trips.getActiveUsertrips().then(function (trips) {
+        $scope.trips = trips;
     }, function(error) {
         
     })

@@ -1,14 +1,14 @@
-<navbar-recipe></navbar-recipe>
+<navbar-trip></navbar-trip>
 <div class="container mt-5">
-    <h1>Recipes</h1>
+    <h1>trips</h1>
 
     <div class="row">
-        <div class="col-sm-6 col-md-4 my-2" ng-repeat="recipe in recipes">
-            <div class="card recipe">
-                <img class="card-img-top" ng-src="{{recipe.imgUrl}}" alt="">
+        <div class="col-sm-6 col-md-4 my-2" ng-repeat="trip in trips">
+            <div class="card trip">
+                <img class="card-img-top" ng-src="{{trip.imgUrl}}" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">{{recipe.name}}</h4>
-                    <p class="card-text">{{recipe.description}}</p>
+                    <h4 class="card-title">{{trip.name}}</h4>
+                    <p class="card-text">{{trip.description}}</p>
                 </div>
             </div>
         </div>

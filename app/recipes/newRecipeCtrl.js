@@ -1,5 +1,5 @@
 
-app.controller("newRecipeCtrl", function($scope, recipes, $location, user) {
+app.controller("newtripCtrl", function($scope, trips, $location, user) {
     
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
@@ -8,10 +8,10 @@ app.controller("newRecipeCtrl", function($scope, recipes, $location, user) {
         return;
     }
 
-    $scope.createRecipe = function () {
-        recipes.createRecipe($scope.name, $scope.description, 
+    $scope.createtrip = function () {
+        trips.createtrip($scope.name, $scope.description, 
             $scope.ingrediants, $scope.steps,  $scope.image).then(function () {
-            $location.path("/recipes")
+            $location.path("/trips")
         }, function (err) {
             console.log(err);
         })

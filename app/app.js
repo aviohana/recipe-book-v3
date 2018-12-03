@@ -1,5 +1,5 @@
 
-var app = angular.module("recipeBookApp", ["ngRoute"]);
+var app = angular.module("tripBookApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -10,13 +10,13 @@ app.config(function($routeProvider) {
         controller: "loginCtrl"
     }).when("/signup", {
 
-    }).when("/recipes", {
-        templateUrl: "app/recipes/recipeGallery.html",
-        controller: "recipeGalleryCtrl"
+    }).when("/trips", {
+        templateUrl: "app/trips/tripGallery.html",
+        controller: "tripGalleryCtrl"
     }).when("/new" , {
-        templateUrl: "app/recipes/newRecipe.html",
-        controller: "newRecipeCtrl"
-    }).when("/recipe/:id" , {
+        templateUrl: "app/trips/newtrip.html",
+        controller: "newtripCtrl"
+    }).when("/trip/:id" , {
 
     })
 })

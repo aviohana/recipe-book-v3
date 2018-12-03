@@ -15,14 +15,14 @@
             "pwd": "123"
         }
     ],
-    "recipes": [
+    "trips": [
         {
             "id": 1,
             "name": "Shakshuka",
             "description": "Amazing egg dish with tomatto souce",
             "ingredients": "Egg, Tomatto, Onion",
             "steps": "Pout eggs and then tomatto",
-            "imgUrl": "http://media.foodnetwork.ca/recipetracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
+            "imgUrl": "http://media.foodnetwork.ca/triptracker/56239255-96d6-4670-8a73-040baaf51f41_Shakshouka_WebReady.jpg",
             "userId": 1
         },
         {

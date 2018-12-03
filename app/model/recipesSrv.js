@@ -1,39 +1,39 @@
 
-app.factory("recipes", function($q, $http, user) {
+app.factory("trips", function($q, $http, user) {
 
-    var recipes = {};
+    var trips = {};
     var wasEverLoaded = {};
 
-    function Recipe(plainRecipe) {
-        this.id = plainRecipe.id;
-        this.name = plainRecipe.name;
-        this.description = plainRecipe.description;
-        this.ingredients = plainRecipe.ingredients;
-        this.steps = plainRecipe.steps;
-        this.imgUrl = plainRecipe.imgUrl;
-        this.userId = plainRecipe.userId;
+    function trip(plaintrip) {
+        this.id = plaintrip.id;
+        this.name = plaintrip.name;
+        this.description = plaintrip.description;
+        this.ingredients = plaintrip.ingredients;
+        this.steps = plaintrip.steps;
+        this.imgUrl = plaintrip.imgUrl;
+        this.userId = plaintrip.userId;
     }
 
-    function getActiveUserRecipes() {
+    function getActiveUsertrips() {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;
 
         // This is a hack since we don't really have a persistant server.
-        // So I want to get all recipes only once.
+        // So I want to get all trips only once.
         if (wasEverLoaded[userId]) {
-            async.resolve(recipes[userId]);
+            async.resolve(trips[userId]);
         } else {
-            recipes[userId] = [];
-            var getRecipesURL = "http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes?userId=" + userId;
+            trips[userId] = [];
+            var gettripsURL = "http://my-json-server.typicode.com/nirch/trip-book-v3/trips?userId=" + userId;
             
-            $http.get(getRecipesURL).then(function(response) {
+            $http.get(gettripsURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
-                    var recipe = new Recipe(response.data[i]);
-                    recipes[userId].push(recipe);
+                    var trip = new trip(response.data[i]);
+                    trips[userId].push(trip);
                 }
                 wasEverLoaded[userId] = true;
-                async.resolve(recipes[userId]);
+                async.resolve(trips[userId]);
             }, function(error) {
                 async.reject(error);
             });
@@ -43,27 +43,27 @@ app.factory("recipes", function($q, $http, user) {
     }
 
 
-    function createRecipe(name, description, ingredients, steps, imgUrl) {
+    function createtrip(name, description, ingredients, steps, imgUrl) {
         var async = $q.defer();
 
         var userId = user.getActiveUser().id;
 
-        var newRecipe = new Recipe({id:-1, name: name, description: description,
+        var newtrip = new trip({id:-1, name: name, description: description,
             ingredients: ingredients, steps: steps, imgUrl: imgUrl, 
             userId: userId});
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
+        //$http.post("http://my-json-server.typicode.com/nirch/trip-book-v3/trips", newtrip).then.....
 
-        recipes[userId].push(newRecipe);
-        async.resolve(newRecipe);
+        trips[userId].push(newtrip);
+        async.resolve(newtrip);
 
         return async.promise;
     }
 
 
     return {
-        getActiveUserRecipes: getActiveUserRecipes,
-        createRecipe: createRecipe
+        getActiveUsertrips: getActiveUsertrips,
+        createtrip: createtrip
     }
 })

@@ -9,7 +9,7 @@ body {
     margin: 0 auto;
 }
 
-.recipe > img {
+.trip > img {
     object-fit: cover;
     height: 300px;
 }
