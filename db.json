@@ -13,6 +13,13 @@
             "lname": "Doe",
             "email": "john@john.com",
             "pwd": "123"
+        },
+        {
+            "id": 3,
+            "fname": "avi",
+            "lname": "ohana",
+            "email": "avi@avi.com",
+            "pwd": "123"
         }
     ],
     "trips": [
