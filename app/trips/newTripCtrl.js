@@ -1,5 +1,5 @@
 
-app.controller("newtripCtrl", function($scope, trips, $location, user) {
+app.controller("newTripCtrl", function($scope, trips, $location, user) {
     
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
@@ -8,8 +8,8 @@ app.controller("newtripCtrl", function($scope, trips, $location, user) {
         return;
     }
 
-    $scope.createtrip = function () {
-        trips.createtrip($scope.name, $scope.description, 
+    $scope.createTrip = function () {
+        trips.createTrip($scope.name, $scope.description, 
             $scope.ingrediants, $scope.steps,  $scope.image).then(function () {
             $location.path("/trips")
         }, function (err) {

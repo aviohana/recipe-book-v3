@@ -20,8 +20,11 @@ app.factory("user", function($q, $http) {
 
     function login(email, pwd) {
         var async = $q.defer();
-    
-        var loginURL = "https://my-json-server.typicode.com/aviohana/recipe-book-v3/users";
+        http://my-json-server.typicode.com/aviohana/trip-book-v3/trips?email=avi@avi.com&pwd=123
+        var loginURL = "http://my-json-server.typicode.com/aviohana/trip-book-v3/users?email=" +
+            email + "&pwd=" + pwd;
+
+        // var loginURL = "https://my-json-server.typicode.com/aviohana/recipe-book-v3/users";
         $http.get(loginURL).then(function(response) {
             if (response.data.length > 0) {
                 // success login

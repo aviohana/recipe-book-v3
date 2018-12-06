@@ -14,8 +14,8 @@ app.config(function($routeProvider) {
         templateUrl: "app/trips/tripGallery.html",
         controller: "tripGalleryCtrl"
     }).when("/new" , {
-        templateUrl: "app/trips/newtrip.html",
-        controller: "newtripCtrl"
+        templateUrl: "app/trips/newTrip.html",
+        controller: "newTripCtrl"
     }).when("/trip/:id" , {
 
     })
